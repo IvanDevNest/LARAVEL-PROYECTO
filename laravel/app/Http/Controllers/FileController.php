@@ -88,7 +88,10 @@ class FileController extends Controller
      */
     public function show(File $file)
     {
-        //
+        return view("files.show", [
+            "file" => $file
+        ]);
+
     }
 
     /**

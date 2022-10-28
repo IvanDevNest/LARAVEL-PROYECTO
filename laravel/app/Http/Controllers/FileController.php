@@ -125,6 +125,15 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        //
+        if (\Storage::disk('public')->exists($file->filepath)) {
+            File::destroy($file->id);
+            \Storage::disk('public')->delete($file->filepath);
+            return redirect()->route('files.index', ["files" => File::all()])
+            ->with('success', 'File successfully deleted');
+        } else {
+            return redirect()->route('files.show', $file)
+            ->with('error', 'ERROR deleting file');
+        }
+
     }
 }

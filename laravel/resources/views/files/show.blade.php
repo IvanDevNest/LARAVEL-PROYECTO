@@ -35,7 +35,7 @@
                         <img class="img-fluid" src="{{ asset("storage/{$file->filepath}") }}" />
                         <br>
                         <button type="submit">Delete</button>
-                        <a href="{{ route('files.create') }}">Add new file</a>
+                        <a href="{{ route('files.edit',$file) }}">Edit</a>
                     </form>
                 </div>
             </div>

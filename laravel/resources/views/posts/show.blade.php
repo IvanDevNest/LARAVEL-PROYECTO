@@ -44,7 +44,7 @@
                         <a href="{{ route('posts.edit',$post) }}">Edit</a>
                     </form>
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
  </div>

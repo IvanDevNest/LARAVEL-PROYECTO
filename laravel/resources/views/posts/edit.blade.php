@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('posts.update',$file) }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('posts.update',$post) }}" enctype="multipart/form-data">
 @csrf
 @method('PUT')  
   <label for="lname">Archivo: {{ $file->filepath }}</label><br>

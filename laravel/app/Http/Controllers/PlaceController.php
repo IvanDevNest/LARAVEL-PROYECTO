@@ -114,7 +114,9 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
-        //
+        return view("places.edit", [
+            "place" => $place
+        ]);
     }
 
     /**
@@ -137,6 +139,9 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        //
+            Place::destroy($place->id);
+            return redirect()->route('places.index', ["places" => Place::all()])
+            ->with('success', 'File successfully deleted');
+
     }
 }

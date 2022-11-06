@@ -33,20 +33,23 @@
                                 
                                 <td>{{ $place->id }}</td>
                                 <td>{{ $place->name }}</td>
-                                <td>{{ $place->id }}</td>
-                                <td>{{ $place->name }}</td>
-                                <td>{{ $place->id }}</td>
-                                <td>{{ $place->name }}</td>
-                                <td>{{ $place->id }}</td>
-                                <td>{{ $place->name }}</td>
+                                <td>{{ $place->description }}</td>
+                                <td>{{ $place->file_id }}</td>
+                                <td>{{ $place->latitude }}</td>
+                                <td>{{ $place->longitude }}</td>
+                                <td>{{ $place->category_id }}</td>
+                                <td>{{ $place->visibility_id }}</td>
+                                <td>{{ $place->author_id }}</td>
+                                <td>{{ $place->created_at }}</td>
+                                <td>{{ $place->updated_at }}</td>
 
                             </tr>
                         </tbody>
                     </table>
                         <img class="img-fluid" src="{{ asset("storage/{$place->placepath}") }}" />
                         <br>
-                        <button type="submit">Delete</button>
-                        <a href="{{ route('places.edit',$place) }}">Edit</a>
+                        <button class="btn btn-primary" type="submit">Delete</button>
+                        <a class="btn btn-primary" href="{{ route('places.edit',$place) }}">Edit</a>
                     </form>
                 </div>
             </div>

@@ -4,10 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\PlaceController;{
-    return $this->belongsTo(Place::class);
- }
- 
+use App\Http\Controllers\PlaceController;
 
 /*
 |--------------------------------------------------------------------------

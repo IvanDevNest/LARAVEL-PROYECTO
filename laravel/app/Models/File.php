@@ -14,13 +14,15 @@ class File extends Model
     ];
     public function post()
     {
-        return $this->belongsTo(Post::class);
+       return $this->hasOne(Post::class);
     }
+    
     
     public function place()
     {
-        return $this->belongsTo(Place::class);
+       return $this->hasOne(Place::class);
     }
+    
 
 }
 

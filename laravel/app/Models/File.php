@@ -12,8 +12,15 @@ class File extends Model
         'filepath',
         'filesize',
     ];
-    public function post(){
+    public function post()
+    {
         return $this->belongsTo(Post::class);
+    }
+    
+    public function place()
+    {
+        return $this->belongsTo(Place::class);
     }
 
 }
+

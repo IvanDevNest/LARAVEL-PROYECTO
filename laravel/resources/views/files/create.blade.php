@@ -3,7 +3,8 @@
    <div class="form-group">
        <label for="upload">File:</label>
        <input type="file" class="form-control" name="upload"/>
-   </div>
+   </div><hr>
    <button type="submit" class="btn btn-primary">Create</button>
+   <hr>
    <button type="reset" class="btn btn-secondary">Reset</button>
 </form>

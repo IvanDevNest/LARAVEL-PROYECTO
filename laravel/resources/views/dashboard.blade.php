@@ -16,8 +16,9 @@
     </div>
     @section('content')
         <h2>{{ __('Resources') }}</h2>
-        <a href="{{ url('/files') }}">{{ __('Files') }}</a>
-        <a href="{{ url('/posts') }}">{{ __('Posts') }}</a>
+        <a class="btn btn-primary" href="{{ url('/files') }}">{{ __('Files') }}</a><hr>
+        <a class="btn btn-primary" href="{{ url('/posts') }}">{{ __('Posts') }}</a>
+        <a class="btn btn-primary" href="{{ url('/places') }}">{{ __('Places') }}</a>
     @endsection
 
 </x-app-layout>

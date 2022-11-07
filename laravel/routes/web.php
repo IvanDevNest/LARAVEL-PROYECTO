@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PlaceController;{
+    return $this->belongsTo(Place::class);
+ }
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +48,4 @@ Route::resource('files', FileController::class)
     ->middleware(['auth', 'role:2   ']);
 
 Route::resource('posts', PostController::class);
-
-
-
-
+Route::resource('places', PlaceController::class);

@@ -52,10 +52,10 @@ class PostController extends Controller
         $upload = $request->file('upload');
         $fileName = $upload->getClientOriginalName();
         $fileSize = $upload->getSize();
-        $body = $request->get('body');
-        $latitude = $request->get('latitude');
-        $longitude = $request->get('longitude');
-        $visibility_id = $request->get('visibility_id');
+        $body = $request->input('body');
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        $visibility_id = $request->input('visibility_id');
         \Log::debug("Storing file '{$fileName}' ($fileSize)...");
 
         // Pujar fitxer al disc dur

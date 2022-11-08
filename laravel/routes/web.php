@@ -44,5 +44,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('files', FileController::class)
     ->middleware(['auth', 'role:2   ']);
 
-Route::resource('posts', PostController::class);
-Route::resource('places', PlaceController::class);
+Route::resource('places', PlaceController::class)
+    ->middleware(['auth', 'role:2']);
+Route::resource('posts', PostController::class)
+    ->middleware(['auth', 'role:2']);
+
+
+
+

@@ -9,6 +9,7 @@
                 <div class="card-body">
                           <form method="post" action="{{ route('places.update',$place) }}" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <label for="name">Nombre</label><br>
                             <input type="text" id="name" value="{{ $place->name }}" name="name" ><br>
                             <label for="description">Descripcion</label><br>

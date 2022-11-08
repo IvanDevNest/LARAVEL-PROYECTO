@@ -128,6 +128,7 @@ class PlaceController extends Controller
      */
     public function update(Request $request, Place $place)
     {
+        // Validar dades del formulari
         $validatedData = $request->validate([
             'upload' => 'required|mimes:gif,jpeg,jpg,png|max:1024'
         ]);
@@ -137,6 +138,8 @@ class PlaceController extends Controller
         $upload = $request->file('upload');
         $fileName = $upload->getClientOriginalName();
         $fileSize = $upload->getSize();
+        $name = $request->input('name');
+        $description = $request ->input('description');
         \Log::debug("Storing file '{$fileName}' ($fileSize)...");
   
         // Pujar fitxer al disc dur
@@ -154,19 +157,25 @@ class PlaceController extends Controller
             $fullPath = \Storage::disk('public')->path($filePath);
             \Log::debug("File saved at {$fullPath}");
             // Desar dades a BD
+
             $file->filepath=$filePath;
             $file->filesize=$fileSize;
             $file->save();
+            $place->name=$name;
+            $place->description=$description;
+            $place->save();
+
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
-            return redirect()->route('places.show', $file)
+            return redirect()->route('places.show', $place)
                 ->with('success', 'File successfully saved');
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
-            return redirect()->route("places.edit")
+            return redirect()->route("files.edit")
                 ->with('error', 'ERROR uploading file');
         }
+
     }
 
     /**

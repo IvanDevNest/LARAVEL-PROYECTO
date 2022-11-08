@@ -145,7 +145,7 @@ class PostController extends Controller
     {
           // Validar fitxer
           $validatedData = $request->validate([
-            'upload' => 'mimes:gif,jpeg,jpg,mp4,png|max:1024',
+            'upload'    => 'nullable|mimes:gif,jpeg,jpg,png,mp4|max:2048',
         ]);
     
         $file=File::find($post->file_id);

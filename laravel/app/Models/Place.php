@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
     protected $fillable = [ 
         'name',
@@ -28,5 +29,10 @@ class Place extends Model
        // foreign key does not follow conventions!!!
        return $this->belongsTo(User::class, 'author_id');
     }
+    public function author()
+    {
+        return $this->belongsTo(User::class);
+    }
+ 
     
 }

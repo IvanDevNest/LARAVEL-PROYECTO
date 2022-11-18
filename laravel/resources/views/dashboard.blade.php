@@ -16,7 +16,7 @@
     </div>
     @section('content')
         <h2>{{ __('Resources') }}</h2>
-        <a class="btn btn-primary" href="{{ url('/files') }}">{{ __('Files') }}</a><hr>
+        <a class="btn btn-success" href="{{ url('/files') }}">{{ __('Files') }}</a><hr>
         <a class="btn btn-primary" href="{{ url('/posts') }}">{{ __('Posts') }}</a>
         <a class="btn btn-primary" href="{{ url('/places') }}">{{ __('Places') }}</a>
     @endsection

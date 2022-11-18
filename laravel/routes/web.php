@@ -41,13 +41,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
 Route::resource('files', FileController::class)
-    ->middleware(['auth', 'role:2   ']);
+   ->middleware(['auth', 'permission:files']);
+
+Route::resource('posts', PostController::class)
+->middleware(['auth', 'permission:posts']);
 
 Route::resource('places', PlaceController::class)
-    ->middleware(['auth', 'role:2']);
-Route::resource('posts', PostController::class)
-    ->middleware(['auth', 'role:2']);
+   ->middleware(['auth', 'permission:places']);
 
 
 

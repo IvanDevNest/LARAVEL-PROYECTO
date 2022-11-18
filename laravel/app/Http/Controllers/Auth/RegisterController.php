@@ -68,9 +68,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_id' => 1,
         ]);
        
+        $user->assignRole('author');
+
         event(new \Illuminate\Auth\Events\Registered($user));
        
         \Illuminate\Support\Facades\Auth::login($user);

@@ -37,6 +37,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        @include('partials.language-switcher')
+
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -70,7 +72,9 @@
                         @endguest
                     </ul>
                 </div>
+
             </div>
+            
         </nav>
 
         <main class="py-4">

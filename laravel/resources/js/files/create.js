@@ -26,7 +26,8 @@ form.addEventListener("submit", function( event ) {
        // Show error messages
        for(let inputName in errors) {
            // ...
-           document.getElementsById("099").innerHTML="Has de pujar un fixer";
+           let message = errors[inputName]
+           document.getElementById("rambo").innerHTML=message;
 
        }
        // Avoid submit

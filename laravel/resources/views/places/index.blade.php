@@ -11,16 +11,16 @@
                        <thead>
                            <tr>
                                <td scope="col">ID</td>
-                               <td scope="col">name</td>
-                               <td scope="col">description</td>
-                               <td scope="col">file_id</td>
-                               <td scope="col">latitude</td>
-                               <td scope="col">longitude</td>
-                               <td scope="col">category_id</td>
-                               <td scope="col">visibility_id</td>
-                               <td scope="col">author_id</td>
-                               <td scope="col">created_at</td>
-                               <td scope="col">updated_at</td>
+                               <td scope="col">{{ __('fields.name') }}</td>
+                               <td scope="col"> {{ __('fields.description') }}</td>
+                               <td scope="col"> {{ __('fields.file_id') }}</td>
+                               <td scope="col"> {{ __('fields.latitude') }}</td>
+                               <td scope="col"> {{ __('fields.longitude') }}</td>
+                               <td scope="col"> {{ __('fields.category_id') }}</td>
+                               <td scope="col"> {{ __('fields.visibility_id') }}</td>
+                               <td scope="col"> {{ __('fields.author_id') }}</td>
+                               <td scope="col"> {{ __('fields.created_at') }}</td>
+                               <td scope="col"> {{ __('fields.updated_at') }}</td>
                            </tr>
                        </thead>
                        <tbody>

@@ -1,5 +1,9 @@
 {
     "File successfully saved": "Fichero guardado correctamente!",
-    "ERROR uploading file": "ERROR subiendo el fichero"
+    "ERROR uploading file": "ERROR subiendo el fichero",
+    "Post Successfully Saved": "Post guardado correctamente",
+    "ERROR Uploading post": "ERROR subiendo el post",
+    "Error post already exist": "ERROR este post ya existe",
+    "Post Successfully Deleted": "Post borrado correctamente"
  }
  

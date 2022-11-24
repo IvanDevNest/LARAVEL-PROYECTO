@@ -1,5 +1,9 @@
 {
     "File successfully saved": "Fitxer desat correctament",
-    "ERROR uploading file": "ERROR pujant el fitxer"
+    "ERROR uploading file": "ERROR pujant el fitxer",
+    "Post Successfully Saved": "Post desat correctament",
+    "ERROR Uploading post": "ERROR pujant el post",
+    "Error post already exist": "ERROR aquest post ja existeix",
+    "Post Successfully Deleted": "Post esborrat correctament"
  }
  

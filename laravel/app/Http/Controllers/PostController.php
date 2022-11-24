@@ -17,7 +17,8 @@ class PostController extends Controller
     public function index()
     {
         return view("posts.index", [
-            "posts" => Post::all()
+            "posts" => Post::all(),
+            "files" => File::all()
         ]);
     }
 
@@ -90,14 +91,14 @@ class PostController extends Controller
             \Log::debug("DB storage OK");
             // Patró PRG amb missatge d'èxit
             return redirect()->route('posts.show', $post)
-                ->with('success', 'Post Successfully Saved');
+                ->with('success', __('Post Successfully Saved'));
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("posts.create")
-                ->with('error', 'ERROR Uploading Post');
+                ->with('error', __('ERROR Uploading Post'));
         }
         
      }
@@ -197,14 +198,14 @@ class PostController extends Controller
 
             // Patró PRG amb missatge d'èxit
             return redirect()->route('posts.show', $post)
-                ->with('success', 'Post Successfully Saved');
+                ->with('success', __('Post Successfully Saved'));
 
 
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("posts.edit")
-                ->with('error', 'ERROR Uploading Post');
+                ->with('error', __('ERROR Uploading Post'));
         }
     }
 
@@ -227,13 +228,13 @@ class PostController extends Controller
             \Log::debug("Local storage OK");
             // Patró PRG amb missatge d'error
             return redirect()->route('posts.show', $post)
-                ->with('error','Error post already exist');
+                ->with('error',__('Error post already exist'));
         }
         else{
             \Log::debug("Post Delete");
             // Patró PRG amb missatge d'èxit
             return redirect()->route("posts.index")
-                ->with('success', 'Post Successfully Deleted');
+                ->with('success', __('Post Successfully Deleted'));
         }  
     }
 }

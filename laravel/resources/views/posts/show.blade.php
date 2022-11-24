@@ -40,7 +40,7 @@
                             </tr>
                         </tbody>
                     </table>
-                        <img class="img-fluid" src="{{ asset("storage/{$file->filepath}") }}" />
+                        <img class="img-fluid" src='{{ asset("storage/{$file->filepath}") }}' />
                         <br>
                         <button type="submit">Delete</button>
                         <a href="{{ route('posts.edit',$post) }}">Edit</a>

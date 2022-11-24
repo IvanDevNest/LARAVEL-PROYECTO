@@ -81,12 +81,12 @@ class PlaceController extends Controller
             ]);
             // Patró PRG amb missatge d'èxit
             return redirect()->route('places.show', $place)
-                ->with('success', 'Place successfully saved');
+                ->with('success', __('Place successfully saved'));
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("places.create")
-                ->with('error', 'ERROR uploading file');
+                ->with('error', __('ERROR uploading file'));
         }
         
     }

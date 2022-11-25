@@ -4,24 +4,43 @@
 <div class="container">
    <div class="row justify-content-center">
        <div class="col-md-8">
-           <div class="card">
-               <div class="card-header">{{ __('places') }}</div>
+           <div class="card border-0">
                <div class="card-body">
-                   <table class="table">
+                   <table class="table table-striped table border-0">
                        <thead>
-                           <tr>
-                               <td scope="col">ID</td>
-                               <td scope="col">{{ __('fields.name') }}</td>
-                               <td scope="col"> {{ __('fields.description') }}</td>
-                               <td scope="col"> {{ __('fields.file_id') }}</td>
-                               <td scope="col"> {{ __('fields.latitude') }}</td>
-                               <td scope="col"> {{ __('fields.longitude') }}</td>
-                               <td scope="col"> {{ __('fields.category_id') }}</td>
-                               <td scope="col"> {{ __('fields.visibility_id') }}</td>
-                               <td scope="col"> {{ __('fields.author_id') }}</td>
-                               <td scope="col"> {{ __('fields.created_at') }}</td>
-                               <td scope="col"> {{ __('fields.updated_at') }}</td>
-                           </tr>
+                       <tr>
+     <th     class="border-0">Places</th>
+</tr>
+<tr >
+    <td class="border-0"><a class="btn btn-primary" href="{{ url('/places') }}">{{ __('Spain') }}</a></td>
+
+</tr>
+    <tr>
+    <td class="border-0"><a class="" href="{{ url('/places') }}">{{ __('Portugal') }}</a></td>
+
+</tr>
+    <tr>
+    <td class="border-0"><a class="btn btn-primary" href="{{ url('/places') }}">{{ __('Mexico') }}</a></td>
+
+</tr>
+    <tr>
+    <td class="border-0"><a class="btn btn-primary" href="{{ url('/places') }}">{{ __('Romania') }}</a></td>
+</tr>
+    <tr>
+    <td class="border-0"><a class="btn btn-primary" href="{{ url('/places') }}">{{ __('Moroco') }}</a></td>
+
+
+</tr>
+                       </thead>
+                       <tbody>
+
+                       </tbody>
+                       <i class="cil-arrow-thick-bottom"></i>
+    
+                   </table>
+                   <table class="table table-striped table border-0">
+                       <thead>
+
                        </thead>
                        <tbody>
                            @foreach ($places as $place)
@@ -45,12 +64,13 @@
                            </tr>
                            @endforeach
                        </tbody>
+                       <i class="cil-arrow-thick-bottom"></i>
+    
                    </table>
-                   <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Add new place</a>
+                   <a class="btn btn-primary position-absolute top-100 start-50 translate-middle" href="{{ route('places.create') }}" role="button">Add new place</a>
                </div>
            </div>
        </div>
    </div>
 </div>
 @endsection
-

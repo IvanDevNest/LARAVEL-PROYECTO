@@ -19,7 +19,11 @@ class PlaceController extends Controller
             "places" => Place::all()
         ]);
     }
-
+    public function indexs()
+    {
+        return view("places.index");
+    }
+    
     /**
      * Show the form for creating a new resource.
      *

@@ -9,6 +9,8 @@
 
     <title>Geo Mir</title>
 
+    <script src="https://kit.fontawesome.com/7545c6f6db.js" crossorigin="anonymous"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -20,8 +22,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
+            <div class="container ">
                 <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="imagenes/Captura de 2022-10-25 17-54-11.png"  width="100" height="90">
 
@@ -33,9 +35,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">                    </ul>
-
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                    <a class="btn btn-primary me-3" href="{{ route('places.index') }}" role="button"><i class="fa-regular fa-map"></i></a>
+                    
                         <!-- Authentication Links -->
                         @include('partials.language-switcher')
 

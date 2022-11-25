@@ -4,8 +4,8 @@
 <div class="container">
    <div class="row justify-content-center">
        <div class="col-md-8">
-           <div class="card">
-               <div class="card-header">{{ __('Posts') }}</div>
+           <div>
+               <div class="card-header"></div>
                <div class="card-body">
                @foreach ($posts as $post)
                 <div class=div-post>  
@@ -25,16 +25,45 @@
                                         </div>                                   
                                     @endif  
                                 @endforeach
-                               
+                    <div class="div-like-post">
+                        <i class="fa-regular fa-heart h3"></i>
+                        <input class="border-secondary border" type="text" id="Comentario" name="Comentario" placeholder="Comentario..">
+                        <a href="{{ route('posts.edit',$post) }}"><i class="fa-regular fa-pen-to-square h3 "></i></a>
+
+                    </div>
                            
                                                      
-                      
+
                        
                        
                       
                 </div>  
                 @endforeach
-                <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Add new file</a>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<a class="btn btn-primary" role="button"><i class="fa-brands fa-instagram h1 "></i></a>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Add new Post</a>
+      <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Add new Place</a>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>                
                </div>
            </div>
        </div>

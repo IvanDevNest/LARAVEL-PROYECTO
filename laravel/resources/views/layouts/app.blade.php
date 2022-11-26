@@ -39,6 +39,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                     <a class="btn btn-primary me-3" href="{{ route('places.index') }}" role="button"><i class="fa-regular fa-map"></i></a>
+                    <a class="btn btn-primary me-3" href="{{ route('posts.index') }}" role="button"><i class="fa-brands fa-instagram"></i></a>
                     
                         <!-- Authentication Links -->
                         @include('partials.language-switcher')
@@ -85,5 +86,6 @@
             @yield('content')
         </main>
     </div>
+    
 </body>
 </html>

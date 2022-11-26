@@ -20,12 +20,15 @@ $border-radius-pill:          50rem;
     align-items: center;
     align-content: center;
     text-align: center;
+    margin-top: 5px;
 }
 .izquierda{
     align-items: left;
     text-align: left;
 }
-
+iframe{
+    border-radius: 10px;
+}
 
 .foto-perfil{
     height: 60px;

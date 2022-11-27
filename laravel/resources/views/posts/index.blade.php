@@ -28,7 +28,7 @@
                     <div class="div-like-post">
                         <i class="fa-regular fa-heart h3"></i>
                         <input class="border-secondary border" type="text" id="Comentario" name="Comentario" placeholder="Comentario..">
-                        <a href="{{ route('posts.edit',$post) }}"><i class="fa-regular fa-pen-to-square h3 "></i></a>
+                        <a href="{{ route('posts.show',$post) }}"><i class="fa-solid fa-eye"></i></a>
 
                     </div>
                            

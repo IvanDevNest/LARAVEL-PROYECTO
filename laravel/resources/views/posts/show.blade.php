@@ -20,7 +20,10 @@
                             <button class="btn btn-danger" type="submit">Delete</button>
                             
                             <a class="btn btn-primary" href="{{ route('posts.edit',$post) }}"><i class="fa-regular fa-pen-to-square"></i></a>
-                            <a class="btn btn-primary" href="{{ route('posts.index',$post) }}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                            <a class="btn btn-primary" href="{{ route('posts.index',$post) }}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>                                                       
+                            <a  href=""><i class="fa-regular fa-heart h3"></i></a>
+                            
+                            
                         </div>
                     </div>
                     </form>

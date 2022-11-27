@@ -128,11 +128,16 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        if(auth()->user()->id == $post->author_id){
+
         $file=File::find($post->file_id);
         return view("posts.edit", [
             'post' => $post,
             'file' => $file,
         ]);
+        }else {
+            return abort('403');
+        }
     }
 
     /**
@@ -236,5 +241,13 @@ class PostController extends Controller
             return redirect()->route("posts.index")
                 ->with('success', __('Post Successfully Deleted'));
         }  
+    }
+    public function like(Post $post)
+    {
+        $user=User::find($post->author_id);
+        $like =Like::create ([
+            'user_id' => $user->id,
+            'post_id' => $post,
+        ]);
     }
 }

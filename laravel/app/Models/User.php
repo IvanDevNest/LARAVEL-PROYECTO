@@ -64,10 +64,5 @@ public function favorites()
 }
 
 
-public function likes()
-{
-   return $this->belongsToMany(Post::class, 'likes');
-}
-
 
 }

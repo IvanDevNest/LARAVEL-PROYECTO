@@ -35,7 +35,7 @@
                         <form method="post" action="{{route('place.favorite',$place)}}" class="form-inline">
                         @csrf
 
-                            <button type="submit"><i class="fa-regular fa-star h4"></i></button></a>
+                            <button class="btn btn-primary " type="submit"><i class="fa-regular fa-star h4"></i></button></a>
                         </form>
                         <input class="border-secondary border" type="text" id="Comentario" name="Comentario" placeholder="Comentario..">
                         <a href="{{ route('places.show',$place) }}"><i class="fa-solid fa-eye h3"></i></a>

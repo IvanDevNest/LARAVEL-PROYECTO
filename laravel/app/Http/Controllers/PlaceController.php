@@ -6,6 +6,9 @@ use App\Models\Place;
 use App\Models\File;
 use Illuminate\Http\Request;
 use App\Models\Favorite;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class PlaceController extends Controller
 {
@@ -209,6 +212,11 @@ class PlaceController extends Controller
             ]);
             return redirect()->back();
 
+    }
+    public function unfavorite(Place $place)
+    {
+        DB::table('favorites')->where(['id_user'=>Auth::id(),'id_place'=>$place->id])->delete();
+        return redirect()->back();
     }
 
 }

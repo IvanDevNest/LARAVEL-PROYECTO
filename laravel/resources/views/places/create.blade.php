@@ -13,7 +13,7 @@
                             <input class="form-control" type="text" id="name" name="name" ><br>
                             <label for="description">Descripcion</label><br>
                             <input class="form-control" type="text" id="description" name="description" ><br><br>
-                            <label for="upload">Arxivo</label><br>
+                            <label for="upload">Archivo</label><br>
                             <input class="form-control" type="file" id="upload" name="upload" ><br>
                             <label for="latitud">Latitud</label><br>
                             <input class="form-control" type="text" id="latitud" name="latitud" ><br><br>

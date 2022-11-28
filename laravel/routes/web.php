@@ -62,4 +62,4 @@ Route::post('/posts/{post}/likes',[App\Http\Controllers\PostController::class, '
 Route::delete('/posts/{post}/likes',[App\Http\Controllers\PostController::class, 'unlike'])->name('posts.unlike');
 Route::post('/places/{place}/favorites', [App\Http\Controllers\PlaceController::class, 'favorite'])->name('place.favorite');
 
-Route::delete ('/places/{place}/favorites', [App\Http\Controllers\PlaceController::class, 'unfavorite']);
+Route::delete ('/places/{place}/favorites', [App\Http\Controllers\PlaceController::class, 'unfavorite'])->name('place.unfavorite');

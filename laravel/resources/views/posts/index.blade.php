@@ -55,7 +55,7 @@
                 @endforeach
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-<a class="btn btn-primary" role="button"><i class="fa-brands fa-instagram h1 "></i></a>
+<a class="btn btn-primary" role="button"><i class="fa-solid fa-plus h1"></i></a>
 </button>
 
 <!-- Modal -->
@@ -63,18 +63,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Que quieres hacer?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Add new Post</a>
-      <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Add new Place</a>
+      <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Publicar Post</a>
+      <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Publicar Place</a>
 
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+
     </div>
   </div>
 </div>                

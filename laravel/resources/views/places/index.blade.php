@@ -30,14 +30,29 @@
             
                                     @endif  
                                 @endforeach
-
+                                <div>
+                                    <p>{{$place->contadorfavorites()}} Favorites</p>
+                                </div>
                     <div class="div-like-post">
                         <form method="post" action="{{route('place.favorite',$place)}}" class="form-inline">
                         @csrf
 
-                            <button class="btn btn-primary " type="submit"><i class="fa-regular fa-star h4"></i></button></a>
-                        </form>
-                        <input class="border-secondary border" type="text" id="Comentario" name="Comentario" placeholder="Comentario..">
+                        @if($place->comprobarfavorite())                       
+                            <form action="{{ route('place.favorite',$place) }}" method="post" enctype="multipart/form-data">
+                            @csrf                            
+                                <button class="btn btn-primary"><i class="fa-solid fa-star"></i></button>                           
+                            </form>
+                            
+                        @else
+                            <form action="{{ route('place.unfavorite',$place) }}" method="post" enctype="multipart/form-data">
+                            @csrf 
+                            @method('DELETE')                          
+                                <button class="btn btn-primary"><i class="fa-regular fa-star"></i></button>                           
+                            </form>
+                        @endif
+
+
+                        <input class="border-secondary border" type="text" id="Comentario" name="Comentario" placeholder="Añade una reseña">
                         <a href="{{ route('places.show',$place) }}"><i class="fa-solid fa-eye h3"></i></a>
 
                     </div>
@@ -51,7 +66,7 @@
                 @endforeach
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-<a class="btn btn-primary" role="button"><i class="fa-brands fa-instagram h1 "></i></a>
+<a class="btn btn-primary" role="button"><i class="fa-solid fa-plus h1"></i></a>
 </button>
 
 <!-- Modal -->
@@ -59,18 +74,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Que quieres hacer?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Add new Post</a>
-      <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Add new Place</a>
+      <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Publicar Post</a>
+      <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Publicar Place</a>
 
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+
     </div>
   </div>
 </div>                

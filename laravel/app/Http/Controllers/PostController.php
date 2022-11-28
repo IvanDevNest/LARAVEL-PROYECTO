@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\File;
 use App\Models\User;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
@@ -253,11 +254,11 @@ class PostController extends Controller
     }
     public function like(Post $post)
     {
-        $user=User::find($post->author_id);
         $like =Like::create ([
-            'user_id' => $user->id,
-            'post_id' => $post,
+            'id_user' => auth()->user()->id,
+            'id_post' => $post->id,
         ]);
+        return redirect()->back();
     }
     public function unlike(Post $post)
     {

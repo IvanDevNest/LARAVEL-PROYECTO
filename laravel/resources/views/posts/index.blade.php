@@ -25,10 +25,11 @@
                                         </div>                                   
                                     @endif  
                                 @endforeach
-                    <div class="div-like-post">
-                        <i class="fa-regular fa-heart h3"></i>
-                        <form action="{{ route('posts.like',$post) }}" method="post" enctype="multipart/form-data">                            
-                            <button class="btn btn-primary"><i class="fa-regular fa-heart h3"></i></button>
+                    <div class="div-like-post"> 
+                                               
+                        <form action="{{ route('posts.like',$post) }}" method="post" enctype="multipart/form-data">
+                        @csrf                            
+                            <button class="btn btn-primary"><i class="fa-regular fa-heart h3"></i></button>                           
                         </form>
                         <input class="border-secondary border" type="text" id="Comentario" name="Comentario" placeholder="Comentario..">
                         <a href="{{ route('posts.show',$post) }}"><i class="fa-solid fa-eye"></i></a>

@@ -262,6 +262,15 @@ class PostController extends Controller
     }
     public function unlike(Post $post)
     {
-        $user=User::find($post->author_id);
+        Like::where('user_id',auth()->user()->id)
+                ->where('id_post',$post->id )->delete();
+        return redirect()->back();
+    }
+    public function comprobarlike(){
+        $id_post= $this->id;
+        $id_user = auth()->user()->id;
+        $select = "SELECT id FROM likes WHERE id_post = $id_post and id_user = $id_user";
+        $id_like = DB::select($select);
+        return empty($id_like);
     }
 }

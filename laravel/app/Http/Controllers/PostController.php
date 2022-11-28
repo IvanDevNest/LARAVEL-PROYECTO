@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -262,15 +264,8 @@ class PostController extends Controller
     }
     public function unlike(Post $post)
     {
-        Like::where('user_id',auth()->user()->id)
-                ->where('id_post',$post->id )->delete();
+        DB::table('likes')->where(['id_user'=>Auth::id(),'id_post'=>$post->id])->delete();
         return redirect()->back();
     }
-    public function comprobarlike(){
-        $id_post= $this->id;
-        $id_user = auth()->user()->id;
-        $select = "SELECT id FROM likes WHERE id_post = $id_post and id_user = $id_user";
-        $id_like = DB::select($select);
-        return empty($id_like);
-    }
+    
 }

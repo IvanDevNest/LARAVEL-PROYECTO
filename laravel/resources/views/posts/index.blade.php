@@ -26,11 +26,18 @@
                                     @endif  
                                 @endforeach
                     <div class="div-like-post"> 
-                                               
-                        <form action="{{ route('posts.like',$post) }}" method="post" enctype="multipart/form-data">
-                        @csrf                            
-                            <button class="btn btn-primary"><i class="fa-regular fa-heart h3"></i></button>                           
-                        </form>
+                        @if($post->comprobarlike())                       
+                            <form action="{{ route('posts.like',$post) }}" method="post" enctype="multipart/form-data">
+                            @csrf                            
+                                <button class="btn btn-primary"><i class="fa-regular fa-heart h3"></i></button>                           
+                            </form>
+                        @else
+                            <form action="{{ route('posts.unlike',$post) }}" method="post" enctype="multipart/form-data">
+                            @csrf 
+                            @method('DELETE')                          
+                                <button class="btn btn-primary"><i class="fa-solid fa-heart"></i></button>                           
+                            </form>
+                        @endif
                         <input class="border-secondary border" type="text" id="Comentario" name="Comentario" placeholder="Comentario..">
                         <a href="{{ route('posts.show',$post) }}"><i class="fa-solid fa-eye"></i></a>
 

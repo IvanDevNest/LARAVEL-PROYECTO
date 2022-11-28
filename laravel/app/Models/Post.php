@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Post extends Model
 {
@@ -36,7 +37,13 @@ class Post extends Model
         return $this->belongsToMany(User::class, 'likes');
     }
 
-
+    public function comprobarlike(){
+        $id_post= $this->id;
+        $id_user = auth()->user()->id;
+        $select = "SELECT id FROM likes WHERE id_post = $id_post and id_user = $id_user";
+        $id_like = DB::select($select);
+        return empty($id_like);
+    }
 
 
 }

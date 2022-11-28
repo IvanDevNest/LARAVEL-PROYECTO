@@ -5,45 +5,27 @@
  <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ $post->id }}</div>
+            <div>
+                <div class="card-header"></div>
                 <div class="card-body">
                 <form method="post" action="{{ route('posts.destroy',$post) }}" enctype="multipart/form-data">
                     @csrf
                     @method('DELETE')
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td scope="col">ID</td>
-                                <td scope="col">Body</td>
-                                <td scope="col">File_id</td>
-                                <td scope="col">Latitude</td>
-                                <td scope="col">Longitude</td>
-                                <td scope="col">Visibility_id</td>
-                                <td scope="col">Author_id</td>
-                                <td scope="col">Create_at</td>
-                                <td scope="col">Updated_at</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                
-                                <td>{{ $post->id }}</td>
-                                <td>{{ $post->body }}</td>
-                                <td>{{ $post->file_id }}</td>
-                                <td>{{ $post->latitude }}</td>
-                                <td>{{ $post->longitude }}</td>
-                                <td>{{ $post->visibility_id }}</td>
-                                <td>{{ $post->author_id }}</td>
-                                <td>{{ $post->created_at }}</td>
-                                <td>{{ $post->updated_at }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                        <img class="img-fluid" src="{{ asset("storage/{$file->filepath}") }}" />
-                        <br>
-                        <button type="submit">Delete</button>
-                        <a href="{{ route('posts.edit',$post) }}">Edit</a>
+                    <div class="div-show">
+                        <div >
+                            <img class="img-fluid rounded-4 " src='{{ asset("storage/{$file->filepath}") }}' />
+                            <br>
+                        </div>
+                        <div class="div-botones-show">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                            
+                            <a class="btn btn-primary" href="{{ route('posts.edit',$post) }}"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a class="btn btn-primary" href="{{ route('posts.index',$post) }}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>                                                       
+                            
+                            
+                            
+                        </div>
+                    </div>
                     </form>
                 </div>
             </div> 

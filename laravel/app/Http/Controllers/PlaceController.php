@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Place;
 use App\Models\File;
 use Illuminate\Http\Request;
+use App\Models\Favorite;
 
 class PlaceController extends Controller
 {
@@ -16,10 +17,11 @@ class PlaceController extends Controller
     public function index()
     {
         return view("places.index", [
-            "places" => Place::all()
+            "places" => Place::all(),
+            "files" => File::all()
         ]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -81,12 +83,12 @@ class PlaceController extends Controller
             ]);
             // Patró PRG amb missatge d'èxit
             return redirect()->route('places.show', $place)
-                ->with('success', 'Place successfully saved');
+                ->with('success', __('Place successfully saved'));
         } else {
             \Log::debug("Local storage FAILS");
             // Patró PRG amb missatge d'error
             return redirect()->route("places.create")
-                ->with('error', 'ERROR uploading file');
+                ->with('error', __('ERROR uploading file'));
         }
         
     }
@@ -114,8 +116,10 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
+        $file=File::find($place->file_id);
         return view("places.edit", [
-            "place" => $place
+            "place" => $place,
+            'file' => $file
         ]);
     }
 
@@ -195,4 +199,16 @@ class PlaceController extends Controller
             ->with('success', 'File successfully deleted');
 
     }
+    public function favorite(Place $place)
+    {
+            $favorite = Favorite::create([
+                'id_place'=>$place->id,
+                'id_user'=>auth()->user()->id,
+                
+
+            ]);
+            return redirect()->back();
+
+    }
+
 }

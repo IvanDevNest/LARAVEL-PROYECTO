@@ -1,16 +1,16 @@
 
-@vite('resources/js/files/create.js')
 @extends('layouts.app')
  
 @section('content')
-<form method="post" action="{{ route('files.store') }}" enctype="multipart/form-data">
+<form id="create" method="post" action="{{ route('files.store') }}" enctype="multipart/form-data">
    @csrf
+   @vite('resources/js/files/create.js')
+
    <div class="form-group">
        <label for="upload">File:</label>
        <input type="file" class="form-control" name="upload"/>
    </div >
-   <p id="099">
-</p><br>
+   <p id="rambo"></p><br>
    <button type="submit" class="btn btn-primary">Create</button>
 
    <button type="reset" class="btn btn-secondary">Reset</button>

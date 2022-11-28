@@ -56,3 +56,7 @@ Route::resource('places', PlaceController::class)
 
 
 Route::get('/language/{locale}', [App\Http\Controllers\LanguageController::class, 'language']);
+
+Route::post('/places/{place}/favorites', [App\Http\Controllers\PlaceController::class, 'favorite'])->name('place.favorite');
+
+Route::delete ('/places/{place}/favorites', [App\Http\Controllers\PlaceController::class, 'unfavorite']);

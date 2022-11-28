@@ -40,14 +40,14 @@
                         @if($place->comprobarfavorite())                       
                             <form action="{{ route('place.favorite',$place) }}" method="post" enctype="multipart/form-data">
                             @csrf                            
-                                <button class="btn btn-primary"><i class="fa-solid fa-star"></i></button>                           
+                                <button class="btn btn-primary"><i class="fa-regular fa-star"></i></button>                           
                             </form>
                             
                         @else
                             <form action="{{ route('place.unfavorite',$place) }}" method="post" enctype="multipart/form-data">
                             @csrf 
                             @method('DELETE')                          
-                                <button class="btn btn-primary"><i class="fa-regular fa-star"></i></button>                           
+                                <button class="btn btn-primary"><i class="fa-solid fa-star"></i></button>                           
                             </form>
                         @endif
 

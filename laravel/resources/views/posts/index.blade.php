@@ -25,6 +25,9 @@
                                         </div>                                   
                                     @endif  
                                 @endforeach
+                                <div>
+                                    <p>{{$post->contadorlike()}} likes</p>
+                                </div>
                     <div class="div-like-post"> 
                         @if($post->comprobarlike())                       
                             <form action="{{ route('posts.like',$post) }}" method="post" enctype="multipart/form-data">

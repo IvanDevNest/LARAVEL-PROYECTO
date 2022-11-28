@@ -45,5 +45,9 @@ class Post extends Model
         return empty($id_like);
     }
 
+    public function contadorlike(){
+        return DB::table('likes')->where (['id_post' => $this->id])->count();
+    }
+
 
 }

@@ -137,7 +137,7 @@ class PostController extends Controller
         $file=File::find($post->file_id);
         return view("posts.edit", [
             'post' => $post,
-            'file' => $file,
+            'file' => $file,    
         ]);
         }else {
             return abort('403');

@@ -119,11 +119,15 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
+        if(auth()->user()->id == $place->author_id){
         $file=File::find($place->file_id);
         return view("places.edit", [
             "place" => $place,
             'file' => $file
         ]);
+    }else {
+    return abort('403');
+    }
     }
 
     /**

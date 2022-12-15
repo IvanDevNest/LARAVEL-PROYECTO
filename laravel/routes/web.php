@@ -32,6 +32,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/sobrenosotros', function () {
+   return view('sobrenosotros');
+})->middleware(['auth', 'verified'])->name('sobrenosotros');
+
 Route::get('mail/test', [MailController::class, 'test']);
 
 require __DIR__.'/auth.php';

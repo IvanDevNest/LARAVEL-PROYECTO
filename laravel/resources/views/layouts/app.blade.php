@@ -42,7 +42,7 @@
                     <ul class="navbar-nav ms-auto">
                     <a class="btn btn-primary me-3" href="{{ route('places.index') }}" role="button"><i class="fa-regular fa-map"></i></a>
                     <a class="btn btn-primary me-3" href="{{ route('posts.index') }}" role="button"><i class="fa-brands fa-instagram"></i></a>
-                    
+                    <a class="btn btn-primary me-3" href="{{ url('/sobrenosotros') }}" role="button"><i class="fa-solid fa-user"></i></a>
                         <!-- Authentication Links -->
                         @include('partials.language-switcher')
 

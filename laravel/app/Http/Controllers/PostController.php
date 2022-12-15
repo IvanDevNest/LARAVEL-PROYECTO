@@ -35,7 +35,9 @@ class PostController extends Controller
     {
         return view("posts.create");
     }
-
+    public function prueba(){
+        return view("posts.prueba");
+     }
     /**
      * Store a newly created resource in storage.
      *
@@ -267,5 +269,7 @@ class PostController extends Controller
         DB::table('likes')->where(['id_user'=>Auth::id(),'id_post'=>$post->id])->delete();
         return redirect()->back();
     }
+
+   
     
 }

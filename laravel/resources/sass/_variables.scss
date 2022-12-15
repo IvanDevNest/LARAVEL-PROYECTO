@@ -156,7 +156,6 @@ figure:hover > figcaption {
     background-size: 400px 500px;
     border-radius: 10px;
     filter: grayscale(80%);
-    transition: width 2s, height 2s, transform 10s;
     background-image: url("https://www.elcolombiano.com/binrepository/661x562/0c0/0d0/none/11101/WMGC/feid-aa_41154022_20221129095611.jpg");
 }
 
@@ -167,6 +166,7 @@ figure:hover > figcaption {
     border-radius: 10px;
     background-image: url("https://i.blogs.es/6ce95c/shrek/1366_2000.jpg");
     filter: saturate(150%);
+    transition: width 2s, height 2s, transform 6s;
     transform: rotate(1080deg);
     
 }
@@ -178,7 +178,7 @@ figure:hover > figcaption {
     background-size: 400px 500px;
     border-radius: 10px;
     filter: grayscale(80%);
-    
+   
     background-image: url("https://www.elcolombiano.com/binrepository/661x562/0c0/0d0/none/11101/WMGC/feid-aa_41154022_20221129095611.jpg");
     
 }
@@ -189,6 +189,14 @@ figure:hover > figcaption {
     background-repeat: no-repeat;
     border-radius: 10px;
     filter: saturate(150%);
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    box-shadow: 0px 0px 15px 15px #94ce83;
+    -webkit-box-shadow: 0px 0px 15px 15px #94ce83;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transition: width 2s, height 2s, transform 1s;
+    transform: perspective(6);
     background-image: url("https://yt3.googleusercontent.com/ZMcYKQqjee0V3DxtzIteXkTykcQRJQLxIzp7RAP2brHZDFIjP6ji2TtdKZwHhoucRa52UWtWAQ=s900-c-k-c0x00ffffff-no-rj");
 }
 

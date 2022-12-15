@@ -38,6 +38,9 @@ Route::get('/sobrenosotros', function () {
 
 Route::get('mail/test', [MailController::class, 'test']);
 
+
+
+
 require __DIR__.'/auth.php';
 
 
@@ -50,13 +53,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('files', FileController::class)
    ->middleware(['auth', 'permission:files']);
 
+Route::get('/posts/prueba', [PostController::class, 'prueba'])->name('posts.prueba');
+
 Route::resource('posts', PostController::class)
 ->middleware(['auth', 'permission:posts']);
 
 Route::resource('places', PlaceController::class)
    ->middleware(['auth', 'permission:places']);
-
-
 
 
 Route::get('/language/{locale}', [App\Http\Controllers\LanguageController::class, 'language']);

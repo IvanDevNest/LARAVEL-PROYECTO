@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
  
 @section('content')
 <div class="container">
@@ -53,6 +54,7 @@
                       
                 </div>  
                 @endforeach
+                
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 <a class="btn btn-primary" role="button"><i class="fa-solid fa-plus h1"></i></a>
@@ -69,6 +71,7 @@
       <div class="modal-body">
       <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Publicar Post</a>
       <a class="btn btn-primary" href="{{ route('places.create') }}" role="button">Publicar Place</a>
+      <a class="btn btn-primary" href="{{ route('posts.prueba') }}" role="button">hola</a>
 
 
       </div>
@@ -80,6 +83,12 @@
            </div>
        </div>
    </div>
+   
 </div>
+<footer>
+    
+</footer>
+
 @endsection
+
 

@@ -5,14 +5,20 @@
     <h2>Sobre Nosotros</h2>
     <div class='div-sobrenosotros'>
         <div class='div-foto-aboutus'>
-            <a href='javascript:void(0);' onmouseover="javascript:reproducirmusica();"><div class="foto-nosotros2"></div></a>        
+            <div id='fotonieve'class="foto-nosotros2"></div>  
+            <audio id='nieve'>
+                <source src='/imagenes/nieve.mp3' type="audio/mp3"></source>
+            </audio>
             <br>
             <p class='p-cargo'>Scrum Master</p>
             <br>
             <p>Arnau Olea</p>
         </div>
         <div class='div-foto-aboutus'>
-            <div class="foto-nosotros"></div>
+            <div  id='fotoshrek' class="foto-nosotros"></div>
+            <audio id='shrek'>
+                <source src='/imagenes/mal.mp3' type="audio/mp3"></source>
+            </audio>
             <br>
             <p>Yeperut</p>
             <br>
@@ -21,15 +27,49 @@
     </div>
 </div>
 </style>
-<script type="text/javascript">
-    var sonido = '/public/imagenes/Shrek.mp3';
+<script>
 
-    var audio ='<embed id="musica" src="'+sonido+'" autoplay="false" type="audio/mpeg" enablejavascript="true"></embed>';
-    document.write(audio);
+    var shrek = document.getElementById('shrek');
+    var nieve = document.getElementById('nieve');
 
-    function reproducirmusica() {
-    var tocando = document.getElementById('musica');
-    tocando.Play();
+
+    var foto1 = document.getElementById('fotoshrek');
+    var foto2 = document.getElementById('fotonieve');
+
+    window.addEventListener('load', iniciarfoto1, false);
+    window.addEventListener('load', pararfoto1, false);
+
+    function iniciarfoto1(){
+        foto1.addEventListener('mouseover', iniciar1, false);
+
+    }
+   
+    function pararfoto1(){
+        foto1.addEventListener('mouseout', parar1, false);
+    }
+    function parar1(){
+        shrek.pause();
+    }
+    function iniciar1(){
+        shrek.play();
+    }
+    
+    window.addEventListener('load', iniciarfoto2, false);
+    window.addEventListener('load', pararfoto2, false);
+
+    function iniciarfoto2(){
+        foto2.addEventListener('mouseover', iniciar2, false);
+
+    }
+   
+    function pararfoto2(){
+        foto2.addEventListener('mouseout', parar2, false);
+    }
+    function parar2(){
+        nieve.pause();
+    }
+    function iniciar2(){
+        nieve.play();
     }
 </script>
 @endsection

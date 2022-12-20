@@ -115,9 +115,8 @@
     
     var shrek = document.getElementById('shrek');
     var nieve = document.getElementById('nieve');
-
-    var cargo1 = document.getElementById('p-cargo1');
-    var cargo2 = document.getElementById('p-cargo2');
+  var text=document.getElementById('p-cargo');
+  var text2=document.getElementById('p-cargo2');
 
     var foto1 = document.getElementById('fotoshrek');
     var foto2 = document.getElementById('fotonieve');
@@ -127,18 +126,22 @@
 
     function iniciarfoto1(){
         foto1.addEventListener('mouseover', iniciar1, false);
-        document.querySelector('#p-cargo').innerHTML = "Conductor Professional"
     }
    
     function pararfoto1(){
         foto1.addEventListener('mouseout', parar1, false);
-        document.querySelector('#p-cargo').innerHTML = "Scrum Master"
+
     }
     function parar1(){
         shrek.pause();
-    }
+        document.querySelector('#p-cargo').innerHTML = "Scrum Master"
+
+      }¡
     function iniciar1(){
         shrek.play();
+        document.querySelector('#p-cargo').innerHTML = "Conductor Professional"
+
+
     }
     
     window.addEventListener('load', iniciarfoto2, false);
@@ -154,9 +157,11 @@
     }
     function parar2(){
         nieve.pause();
+        document.querySelector('#p-cargo2').innerHTML = "Mongolo Professional"
     }
     function iniciar2(){
         nieve.play();
+        document.querySelector('#p-cargo2').innerHTML = "Yeperut"
     }
 
 

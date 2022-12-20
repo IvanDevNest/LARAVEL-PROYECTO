@@ -3,20 +3,30 @@
 <p>hola</p>
 <div class='div-general-sobrenosotros'>
     <h2>Sobre Nosotros</h2>
-    <div class='div-sobrenosotros'>
-        <div id='aboutus-2' ondrop="drop(event)" ondragover="allowDrop(event)" class='div-foto-aboutus'>
-            <div draggable="true" ondragstart="drag(event)" id="drag1" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id='fotonieve' class="foto-nosotros2">
+    <div id="drag" class='div-sobrenosotros'>
+        <div id='aboutus2'  class='div-foto-aboutus'>
+            <div   type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id='fotonieve' class="foto-nosotros2">
 
             </div>  
             <audio id='nieve'>
                 <source src='/imagenes/nieve.mp3' type="audio/mp3"></source>
             </audio>
             <br>
-            <p class='p-cargo'>Scrum Master</p>
+            <p id='p-cargo'>Scrum Master</p>
             <br>
             <p>Arnau Olea</p>
         </div>
-
+        <div id='aboutus1'  class='div-foto-aboutus'>
+            <div  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" id='fotoshrek' class="foto-nosotros"></div>
+            <audio id='shrek'>
+                <source src='/imagenes/mal.mp3' type="audio/mp3"></source>
+            </audio>
+            <br>
+            <p id='p-cargo2'>Yeperut</p>
+            <br>
+            <p>Ivan Moscoso</p>
+        </div>
+    </div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -58,19 +68,6 @@
   </div>
 </div>
  
-
-
-        
-        <div id='aboutus-1' ondrop="drop(event)" ondragover="allowDrop(event)" class='div-foto-aboutus'>
-            <div draggable="true" ondragstart="drag(event)" id="drag2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" id='fotoshrek' class="foto-nosotros"></div>
-            <audio id='shrek'>
-                <source src='/imagenes/mal.mp3' type="audio/mp3"></source>
-            </audio>
-            <br>
-            <p>Yeperut</p>
-            <br>
-            <p>Ivan Moscoso</p>
-        </div>
         <!-- Modal -->
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -110,13 +107,17 @@
       </div>
     </div>
   </div>
-</div>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js'></script>
 <script>
-
+    
+    dragula([document.getElementById('drag')]);
+    
     var shrek = document.getElementById('shrek');
     var nieve = document.getElementById('nieve');
 
+    var cargo1 = document.getElementById('p-cargo1');
+    var cargo2 = document.getElementById('p-cargo2');
 
     var foto1 = document.getElementById('fotoshrek');
     var foto2 = document.getElementById('fotonieve');
@@ -126,11 +127,12 @@
 
     function iniciarfoto1(){
         foto1.addEventListener('mouseover', iniciar1, false);
-
+        document.querySelector('#p-cargo').innerHTML = "Conductor Professional"
     }
    
     function pararfoto1(){
         foto1.addEventListener('mouseout', parar1, false);
+        document.querySelector('#p-cargo').innerHTML = "Scrum Master"
     }
     function parar1(){
         shrek.pause();
@@ -187,19 +189,26 @@ nextBtn.addEventListener("click", function(){
 })
 
 
-function allowDrop(ev) {
-  ev.preventDefault();
-}
+// function allowDrop(ev) {
+//     ev.preventDefault();
+//   }
 
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
+//   function drag(ev) {
+//     ev.dataTransfer.setData("text", ev.target.id);
+//   }
 
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}
+//   function drop(ev) {
+//     ev.preventDefault();
+//     var data = ev.dataTransfer.getData("text");
+//     let xxx = ev.target.src  
+//     console.log(xxx)
+//     ev.target.src = document.getElementById(data).src;
+//     console.log(ev.target.src)
+//     document.getElementById(data).src = xxx
+
+
+//   }
 
 </script>
+
 @endsection

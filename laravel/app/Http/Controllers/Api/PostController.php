@@ -107,7 +107,7 @@ class PostController extends Controller
     public function show($id)
     {
 
-        $post = File::find($id);
+        $post = Post::find($id);
         if($post){
             if($id){
                 return response()->json([
@@ -138,8 +138,9 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         // Validar fitxer
-        $file = File::find($id);
-        if($file){
+        $post = Post::find($id);
+        if($post){
+            $file=File::find($post->file_id);
             $validatedData = $request->validate([
                 'upload' => 'required|mimes:gif,jpeg,jpg,png|max:1024'
             ]);
@@ -168,10 +169,15 @@ class PostController extends Controller
                 $file->filesize=$fileSize;
                 $file->save();
                 \Log::debug("DB storage OK");
+                $post->body=$request->input('body');
+                $post->latitude=$request->input('latitude');
+                $post->longitude=$request->input('longitude');
+                $post->visibility_id=$request->input('visibility_id');
+                $post->save();
                 // Patró PRG amb missatge d'èxit
                 return response()->json([
                     'success' => true,
-                    'data'    => $file
+                    'data'    => $post
                 ], 200);
             } else {
                 \Log::debug("Local storage FAILS");
@@ -198,8 +204,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        Log::debug("Post id: {$id}");
-        Log::debug($post);
+
         if($post){
             $post->delete();
             return response()->json([

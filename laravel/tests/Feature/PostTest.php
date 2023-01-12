@@ -128,8 +128,8 @@ public function test_post_create_error()
         // Check OK response
         $this->_test_ok($response);
         // Check JSON exact values
-        $response->assertJsonPath("data.filepath",
-            fn ($filepath) => !empty($filepath)
+        $response->assertJsonPath("data.id",
+            fn ($id) => !empty($id)
         );
     }
 
@@ -146,13 +146,13 @@ public function test_post_create_error()
     public function test_post_update(object $post)
     {
         // Create fake file
-        $name  = "avatar.png";
+        $name  = "arnaufeliz.png";
         $size = 1000; /*KB*/
         $upload = UploadedFile::fake()->image($name)->size($size);
-        $body = 'efefwfew';
+        $body = 'hola';
         $latitude = 1;
-        $longitude = 2;
-        $visibility_id = 3;
+        $longitude = 1;
+        $visibility_id = 1;
         $author_id = 1;
         // Upload fake file using API web service
         $response = $this->putJson("/api/post/{$post->id}", [
@@ -174,12 +174,7 @@ public function test_post_create_error()
             "visibility_id",
             "author_id",
         ]);
-        // Check JSON exact values
-        $response->assertJsonPath("data.filesize", $size*1024);
-        // Check JSON dynamic values
-        $response->assertJsonPath("data.filepath",
-            fn ($filepath) => str_contains($filepath, $name)
-        );
+        
     }
 /**
         * @depends test_post_create

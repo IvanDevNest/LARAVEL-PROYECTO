@@ -2,41 +2,44 @@
 @section('content')
 <style>
   .foto-nosotros{
-    width: 400px;
+    width: 300px;
     height: 500px;
     background-repeat: no-repeat;
     background-size: 400px 500px;
     border-radius: 10px;
     filter: grayscale(80%);
-    background-image: url("/imagenes/ivanserio.png");
+    background: url("/imagenes/sprite.png") 300px 500px;
+    
 }
 
 .foto-nosotros:hover{
-    width: 400px;
+    width: 300px;
     height: 500px;
     background-repeat: no-repeat;
     border-radius: 10px;
-    background-image: url("/imagenes/ivanfeliz.jpg");
+    background-image: url("/imagenes/sprite.png");
     filter: saturate(150%);
     transition: width 2s, height 2s, transform 6s;
     transform: rotate(1080deg);
+    background: url("/imagenes/sprite.png") 0px 500px;
+
     
 }
 
 .foto-nosotros2{
-    width: 400px;
+    width: 300px;
     height: 500px;
     background-repeat: no-repeat;
     background-size: 400px 500px;
     border-radius: 10px;
     filter: grayscale(80%);
-   
-    background-image: url("imagenes/arnauserio.jpg");
+    background: url("/imagenes/sprite.png") 300px 0px;
+    
     
 }
 
 .foto-nosotros2:hover{
-    width: 400px;
+    width: 300px;
     height: 500px;
     background-repeat: no-repeat;
     border-radius: 10px;
@@ -49,7 +52,7 @@
     -webkit-transform: rotate(-1080deg);
     transition: width 2s, height 2s, transform 1s;
     transform: perspective(6);
-    background-image: url("imagenes/arnaufeliz.jpg");
+    background: url("/imagenes/sprite.png") 0px 0px;
 }
   </style>
 <p>hola</p>
@@ -57,7 +60,8 @@
     <h2>Sobre Nosotros</h2>
     <div id="drag" class='div-sobrenosotros'>
         <div id='aboutus2'  class='div-foto-aboutus'>
-            <div   type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id='fotonieve' class="foto-nosotros2">
+            <div   type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id='fotonieve' class="foto-nosotros2 
+            ">
 
             </div>  
             <audio id='nieve'>

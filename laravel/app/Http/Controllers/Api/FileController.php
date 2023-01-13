@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\File;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FileController extends Controller
 {
@@ -93,7 +94,7 @@ class FileController extends Controller
         else{
             return response()->json([
                 "success" => false,
-                "message" => "te huele "
+                "message" => "Error"
             ], 404);
         }
 
@@ -169,6 +170,8 @@ class FileController extends Controller
     public function destroy($id)
     {
         $file=File::find($id);
+        Log::debug($id);
+        Log::debug($file);
         if($file){
             if (\Storage::disk('public')->exists($file->filepath)) {
                 File::destroy($file->id);

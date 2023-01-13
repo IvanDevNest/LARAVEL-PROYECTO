@@ -7,6 +7,7 @@ use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 use App\Models\File;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,11 @@ use Illuminate\Http\Request;
 
 class PlaceController extends Controller
 {
+    public function __construct()
+{
+$this->middleware('auth:sanctum')->only('store');
+
+}
     /**
      * Display a listing of the resource.
      *
@@ -186,36 +192,7 @@ class PlaceController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $file=File::find($id);
-        if($file){
-            if (\Storage::disk('public')->exists($file->filepath)) {
-                File::destroy($file->id);
-                \Storage::disk('public')->delete($file->filepath);
-                return response()->json([
-                    'success' => true,
-                    'data'    => $file
-                ], 200);     
-            } else {
-                return response()->json([
-                    'success'  => false,
-                    'message' => 'Error deletting file'
-                ], 500);
-            }
-        }else{
-            return response()->json([
-                'success'  => false,
-                'message' => 'Error searching file'
-            ], 404);
-        }
-}
+    
 public function update_workaround(Request $request, $id)
    {
        return $this->update($request, $id);
@@ -224,6 +201,70 @@ public function update_workaround(Request $request, $id)
    {
        return $this->show($request, $id);
    }
+   public function favorite(Place $place){
+    $favorite=Favorite::create([
+        'id_place'=>$place->id,
+        'id_user'=>auth()->user()->id,
+
+    ]);
+    if ($favorite){
+        return response()->json([
+            'success' => true,
+            'data'    => $favorite
+        ], 200);
+    } else {
+        return response()->json([
+            'success'  => false,
+            'message' => 'Error deleting file'
+        ], 500);
+    }        
+}
+
+
+public function unfavorite(Place $place)
+{
+    $favorite=DB::table('favorites')->where(['id_user'=>Auth::id(),'id_place'=>$place->id])->delete();
+    if ($favorite){
+        return response()->json([
+            'success' => true,
+            'data'    => $favorite
+        ], 200);
+    } else {
+        return response()->json([
+            'success'  => false,
+            'message' => 'Error deleting file'
+        ], 500);
+    }     
+}
+
+
+   /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $place=Place::find($id);
+        Log::debug($place);
+        Log::debug($id);
+        if(empty($place)){
+
+            return response()->json([
+                'success'  => false,
+                'message' => 'Error searching place'
+            ], 404);
+    
+        }else{
+            $place->delete();
+
+            return response()->json([
+                'success' => true,
+                'data'    => $place
+            ], 200); 
+        }
+}
    public function delete_workaround(Request $request, $id)
    {
        return $this->destroy($request, $id);

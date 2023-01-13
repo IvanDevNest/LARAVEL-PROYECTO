@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\TokenController;
 
  
 Route::apiResource('files', FileController::class);
+Route::post('files/{file}', [FileController::class, 'update_workaround']);
 
 /*
 |--------------------------------------------------------------------------
@@ -26,16 +27,17 @@ Route::apiResource('files', FileController::class);
 //     return $request->user();
 // });
 
-Route::post('files/{file}', [FileController::class, 'update_workaround']);
-Route::post('files/{file}', [FileController::class, 'read_workaround']);
-Route::post('files/{file}', [FileController::class, 'delete_workaround']);
-
 Route::post('/register', [TokenController::class, 'register']);
 Route::post('/login', [TokenController::class, 'login']);
 Route::post('/logout', [TokenController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/user', [TokenController::class, 'user'])->middleware('auth:sanctum');
 
-Route::apiResource('place',PlaceController::class);
+Route::apiResource('places',PlaceController::class);
+
+Route::post('/places/{place}/favorites', [PlaceController::class,'favorite']);
+Route::delete('/places/{place}/favorites', [PlaceController::class,'unfavorite']);
+
+Route::post('/places/{place}',[PlaceController::class,'store'])->middleware('auth:sanctum');
 
 
 

@@ -6,20 +6,31 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use App\Models\File;
 use App\Models\User;
+use App\Models\Like;
 
 class PostController extends Controller
 {
-
+    public function __construct()
+    {
+    $this->middleware('auth:sanctum')->only('store');
+    $this->middleware('auth:sanctum')->only('update');
+    $this->middleware('auth:sanctum')->only('destroy');
+    $this->middleware('auth:sanctum')->only('like');
+    $this->middleware('auth:sanctum')->only('unlike');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         return response()->json([
@@ -95,7 +106,7 @@ class PostController extends Controller
             return response()->json([
                 'success'  => false,
                 'message' => 'Error creating post'
-            ], 421);
+            ], 500);
         }
     }
 /**
@@ -224,5 +235,38 @@ class PostController extends Controller
         return $this->update($request, $id);
     }
 
+    public function like(Post $post){
+        $likes = Like::create([
+            'id_user' => auth()->user()->id,
+            'id_post' => $post->id,
+        ]);
+        if ($likes) {
+            return response()->json([
+                'success' => true,
+                'data' => $likes
+            ], 200);
+        } else {
+            return response()->json([
+                'succes' => false,
+                'message' => 'Error deleting file'
+            ], 500);
+        }
+    }
+    public function unlike(Post $post)
+    {
+        $likes=DB::table('likes')->where('id_user', auth()->user()->id, )
+            ->where('id_post', $post->id)->delete();
+        if ($likes) {
+            return response()->json([
+                'success' => true,
+                'data' => $likes
+            ], 200);
+        } else {
+            return response()->json([
+                'succes' => false,
+                'message' => 'Error deleting file'
+            ], 500);
+        }
+    }
 }
 

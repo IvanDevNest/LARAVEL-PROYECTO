@@ -32,6 +32,11 @@ Route::get('/user', [TokenController::class, 'user'])->middleware('auth:sanctum'
 
 Route::apiResource('post',PostController::class);
 
+Route::post('/post/{post}',[PostController::class,'store'])->middleware('auth:sanctum');
+
+Route::post('/post/{post}/likes',[PostController::class, 'like']);
+Route::delete('/post/{post}/likes',[PostController::class, 'unlike']);
+
 
 
 

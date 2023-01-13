@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use App\Models\User;
+use App\Models\Like;
 use App\Models\Mymodel;
 use Laravel\Sanctum\Sanctum;
 use Illuminate\Testing\Fluent\AssertableJson;
@@ -96,6 +97,8 @@ class PostTest extends TestCase
     }
 public function test_post_create_error()
     {
+        Sanctum::actingAs(self::$testUser);
+
         // Create fake file with invalid max size
         $name  = "avatar.png";
         $size = 5000; /*KB*/
@@ -145,6 +148,8 @@ public function test_post_create_error()
         */
     public function test_post_update(object $post)
     {
+        Sanctum::actingAs(self::$testUser);
+
         // Create fake file
         $name  = "arnaufeliz.png";
         $size = 1000; /*KB*/
@@ -181,6 +186,8 @@ public function test_post_create_error()
         */
     public function test_post_update_error(object $post)
     {
+        Sanctum::actingAs(self::$testUser);
+
         // Create fake file with invalid max size
         $name  = "photo.jpg";
         $size = 3000; /*KB*/
@@ -195,16 +202,41 @@ public function test_post_create_error()
 
     public function test_post_update_notfound()
     {
+        Sanctum::actingAs(self::$testUser);
+
         $id = "not_exists";
         $response = $this->putJson("/api/post/{$id}", []);
         $this->_test_notfound($response);
     }
-
+    /**
+     * @depends test_post_create
+     */
+    public function test_post_like(object $post)
+    {
+        Sanctum::actingAs(self::$testUser);
+        // Delete one file using API web service
+        $response = $this->postJson("/api/post/{$post->id}/likes");
+        // Check OK response
+        $this->_test_ok($response);
+    }
+    /**
+     * @depends test_post_create
+     */
+    public function test_post_unlike(object $post)
+    {
+        Sanctum::actingAs(self::$testUser);
+        // Delete one file using API web service
+        $response = $this->deleteJson("/api/post/{$post->id}/likes");
+        // Check OK response
+        $this->_test_ok($response);
+    }
     /**
         * @depends test_post_create
         */
     public function test_post_delete(object $post)
     {
+        Sanctum::actingAs(self::$testUser);
+
         // Delete one file using API web service
         $response = $this->deleteJson("/api/post/{$post->id}");
         // Check OK response
@@ -213,6 +245,8 @@ public function test_post_create_error()
 
     public function test_post_delete_notfound()
     {
+        Sanctum::actingAs(self::$testUser);
+
         $id = "not_exists";
         $response = $this->deleteJson("/api/post/{$id}");
         $this->_test_notfound($response);
@@ -273,4 +307,6 @@ public function test_post_create_error()
             'email' => self::$testUser->email,
         ]);
     } 
+
+    
 }

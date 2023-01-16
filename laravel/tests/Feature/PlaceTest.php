@@ -192,6 +192,7 @@ class PlaceTest extends TestCase
         $response = $this->postJson("/api/place/{$place->id}/favorites");
         // Check OK response
         $this->_test_ok($response);
+        //
     }
     /**
      * @depends test_place_create

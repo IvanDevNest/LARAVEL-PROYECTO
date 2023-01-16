@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\PostController;
  
 Route::apiResource('files', FileController::class);
 Route::post('files/{file}', [FileController::class, 'update_workaround']);
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,6 +40,11 @@ Route::post('/post/{post}',[PostController::class,'store'])->middleware('auth:sa
 Route::post('/post/{post}/likes',[PostController::class, 'like']);
 Route::delete('/post/{post}/likes',[PostController::class, 'unlike']);
 
+Route::apiResource('places',PlaceController::class);
+
+
+Route::post('/places/{place}/favorites', [PlaceController::class,'favorite']);
+Route::delete('/places/{place}/favorites', [PlaceController::class,'unfavorite']);
 
 
 

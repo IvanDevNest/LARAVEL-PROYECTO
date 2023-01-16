@@ -32,14 +32,9 @@ Route::post('/login', [TokenController::class, 'login']);
 Route::post('/logout', [TokenController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/user', [TokenController::class, 'user'])->middleware('auth:sanctum');
 
-<<<<<<< .merge_file_XTC7WT
-Route::apiResource('place',PlaceController::class);
-
-=======
 Route::apiResource('post',PostController::class);
 
 Route::post('/post/{post}',[PostController::class,'store'])->middleware('auth:sanctum');
->>>>>>> .merge_file_6x5MCW
 
 Route::post('/post/{post}/likes',[PostController::class, 'like']);
 Route::delete('/post/{post}/likes',[PostController::class, 'unlike']);

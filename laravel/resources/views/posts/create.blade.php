@@ -3,7 +3,10 @@
     @section('content')
 <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
    @csrf
-   @vite('resources/js/posts/create-post.js')
+   @env(['local','development'])
+        @vite('resources/js/posts/create.js')
+    @endenv
+
    <div class="div-create">
         <div class="div-create-post">
             <div id="upload">

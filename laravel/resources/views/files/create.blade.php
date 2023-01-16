@@ -4,7 +4,10 @@
 @section('content')
 <form id="create" method="post" action="{{ route('files.store') }}" enctype="multipart/form-data">
    @csrf
-   @vite('resources/js/files/create.js')
+   @env(['local','development'])
+    @vite('resources/js/files/create.js')
+   @endenv
+
 
    <div class="form-group">
        <label for="upload">File:</label>

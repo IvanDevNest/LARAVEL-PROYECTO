@@ -20,6 +20,18 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @include('flash')
+     <!-- Styles and scripts -->
+   @env(['local','development'])
+       @vite(['resources/sass/app.scss', 'resources/js/bootstrap.js'])  
+   @endenv
+   @env(['production'])
+       @php
+           $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+       @endphp
+       <script type="module" src="/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
+       <link rel="stylesheet" href="/build/{{ $manifest['resources/sass/app.scss']['file'] }}">
+   @endenv
+
 
 </head>
 <body>

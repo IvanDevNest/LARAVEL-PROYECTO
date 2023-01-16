@@ -9,6 +9,10 @@
                 <div class="card-body">
                         <form method="post" action="{{ route('places.store') }}" enctype="multipart/form-data">
                             @csrf
+                            @env(['local','development'])
+                                @vite('resources/js/places/create.js')
+                            @endenv
+
                             <label for="name">Nombre</label><br>
                             <input class="form-control" type="text" id="name" name="name" ><br>
                             <label for="description">Descripcion</label><br>

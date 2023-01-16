@@ -1,18 +1,24 @@
 @extends('layouts.app')
 @section('content')
 <style>
+  
+  /* div con la primera foto */
   .foto-nosotros{
+/* propiedades esteticas del div */
     width: 300px;
     height: 500px;
     background-repeat: no-repeat;
     background-size: 400px 500px;
     border-radius: 10px;
     filter: grayscale(80%);
+    /* Usamos el collage de fotos con el sprite para poner una foto */
     background: url("/imagenes/sprite.png") 300px 500px;
     
 }
 
+/* animacion del div 2 y cambio de foto */
 .foto-nosotros:hover{
+  /* propiedades esteticas del div */
     width: 300px;
     height: 500px;
     background-repeat: no-repeat;
@@ -21,24 +27,29 @@
     filter: saturate(150%);
     transition: width 2s, height 2s, transform 6s;
     transform: rotate(1080deg);
+    /* Usamos el collage de fotos con el sprite para cambiar de foto */
     background: url("/imagenes/sprite.png") 0px 500px;
 
     
 }
-
+/* div con la primera foto */
 .foto-nosotros2{
+  /* propiedades esteticas del div */
     width: 300px;
     height: 500px;
     background-repeat: no-repeat;
     background-size: 400px 500px;
     border-radius: 10px;
     filter: grayscale(80%);
+    /* Usamos el collage de fotos con el sprite para poner una foto */
     background: url("/imagenes/sprite.png") 300px 0px;
     
     
 }
 
+/* animacion del div 1 y cambio de foto */
 .foto-nosotros2:hover{
+  /* propiedades esteticas del div */
     width: 300px;
     height: 500px;
     background-repeat: no-repeat;
@@ -48,14 +59,16 @@
     -webkit-border-radius:50%;
     box-shadow: 0px 0px 15px 15px #94ce83;
     -webkit-box-shadow: 0px 0px 15px 15px #94ce83;
+    /* animacion de rotacion  */
     transform: rotate(-1080deg);
-    -webkit-transform: rotate(-1080deg);
+    -webkit-transform: rotate(-1080deg);zxsz
     transition: width 2s, height 2s, transform 1s;
     transform: perspective(6);
+    /* Usamos el collage de fotos con el sprite para cambiar de foto */
     background: url("/imagenes/sprite.png") 0px 0px;
 }
   </style>
-<p>hola</p>
+
 <div class='div-general-sobrenosotros'>
     <h2>Sobre Nosotros</h2>
     <div id="drag" class='div-sobrenosotros'>

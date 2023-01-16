@@ -120,6 +120,7 @@ label .div-create-post{
     width: 40px;
 }
 
+// estilo del div
 .div-sobrenosotros{
     align-items: center;
     justify-content: center;
@@ -149,56 +150,57 @@ figure:hover > figcaption {
     transition: all .5s;
 }
 
-.foto-nosotros{
-    width: 400px;
-    height: 500px;
-    background-repeat: no-repeat;
-    background-size: 400px 500px;
-    border-radius: 10px;
-    filter: grayscale(80%);
-    background-image: url("/imagenes/ivanserio.png");
-}
 
-.foto-nosotros:hover{
-    width: 400px;
-    height: 500px;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    background-image: url("/imagenes/ivanfeliz.jpg");
-    filter: saturate(150%);
-    transition: width 2s, height 2s, transform 6s;
-    transform: rotate(1080deg);
+// .foto-nosotros{
+//     width: 400px;
+//     height: 500px;
+//     background-repeat: no-repeat;
+//     background-size: 400px 500px;
+//     border-radius: 10px;
+//     filter: grayscale(80%);
+//     background-image: url("/imagenes/ivanserio.png");
+// }
+
+// .foto-nosotros:hover{
+//     width: 400px;
+//     height: 500px;
+//     background-repeat: no-repeat;
+//     border-radius: 10px;
+//     background-image: url("/imagenes/ivanfeliz.jpg");
+//     filter: saturate(150%);
+//     transition: width 2s, height 2s, transform 6s;
+//     transform: rotate(1080deg);
     
-}
+// }
 
-.foto-nosotros2{
-    width: 400px;
-    height: 500px;
-    background-repeat: no-repeat;
-    background-size: 400px 500px;
-    border-radius: 10px;
-    filter: grayscale(80%);
+// .foto-nosotros2{
+//     width: 400px;
+//     height: 500px;
+//     background-repeat: no-repeat;
+//     background-size: 400px 500px;
+//     border-radius: 10px;
+//     filter: grayscale(80%);
    
-    background-image: url("imagenes/arnauserio.jpg");
+//     background-image: url("imagenes/arnauserio.jpg");
     
-}
+// }
 
-.foto-nosotros2:hover{
-    width: 400px;
-    height: 500px;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    filter: saturate(150%);
-    border-radius:50%;
-    -webkit-border-radius:50%;
-    box-shadow: 0px 0px 15px 15px #94ce83;
-    -webkit-box-shadow: 0px 0px 15px 15px #94ce83;
-    transform: rotate(-1080deg);
-    -webkit-transform: rotate(-1080deg);
-    transition: width 2s, height 2s, transform 1s;
-    transform: perspective(6);
-    background-image: url("imagenes/arnaufeliz.jpg");
-}
+// .foto-nosotros2:hover{
+//     width: 400px;
+//     height: 500px;
+//     background-repeat: no-repeat;
+//     border-radius: 10px;
+//     filter: saturate(150%);
+//     border-radius:50%;
+//     -webkit-border-radius:50%;
+//     box-shadow: 0px 0px 15px 15px #94ce83;
+//     -webkit-box-shadow: 0px 0px 15px 15px #94ce83;
+//     transform: rotate(-1080deg);
+//     -webkit-transform: rotate(-1080deg);
+//     transition: width 2s, height 2s, transform 1s;
+//     transform: perspective(6);
+//     background-image: url("imagenes/arnaufeliz.jpg");
+// }
 
 .p-cargo{
     content: 'Scrum Master';

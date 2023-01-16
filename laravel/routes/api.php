@@ -6,11 +6,12 @@ use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\PlaceController;
 
 use App\Http\Controllers\Api\TokenController;
+use App\Http\Controllers\Api\PostController;
 
 
  
 Route::apiResource('files', FileController::class);
-
+Route::post('files/{file}', [FileController::class, 'update_workaround']);
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,18 +27,22 @@ Route::apiResource('files', FileController::class);
 //     return $request->user();
 // });
 
-Route::post('files/{file}', [FileController::class, 'update_workaround']);
-Route::post('files/{file}', [FileController::class, 'read_workaround']);
-Route::post('files/{file}', [FileController::class, 'delete_workaround']);
-
 Route::post('/register', [TokenController::class, 'register']);
 Route::post('/login', [TokenController::class, 'login']);
 Route::post('/logout', [TokenController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/user', [TokenController::class, 'user'])->middleware('auth:sanctum');
 
+<<<<<<< .merge_file_XTC7WT
 Route::apiResource('place',PlaceController::class);
 
+=======
+Route::apiResource('post',PostController::class);
 
+Route::post('/post/{post}',[PostController::class,'store'])->middleware('auth:sanctum');
+>>>>>>> .merge_file_6x5MCW
+
+Route::post('/post/{post}/likes',[PostController::class, 'like']);
+Route::delete('/post/{post}/likes',[PostController::class, 'unlike']);
 
 
 

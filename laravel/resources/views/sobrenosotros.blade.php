@@ -1,11 +1,67 @@
 @extends('layouts.app')
 @section('content')
+<style>
+  .foto-nosotros{
+    width: 300px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: 400px 500px;
+    border-radius: 10px;
+    filter: grayscale(80%);
+    background: url("/imagenes/sprite.png") 300px 500px;
+    
+}
+
+.foto-nosotros:hover{
+    width: 300px;
+    height: 500px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    background-image: url("/imagenes/sprite.png");
+    filter: saturate(150%);
+    transition: width 2s, height 2s, transform 6s;
+    transform: rotate(1080deg);
+    background: url("/imagenes/sprite.png") 0px 500px;
+
+    
+}
+
+.foto-nosotros2{
+    width: 300px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: 400px 500px;
+    border-radius: 10px;
+    filter: grayscale(80%);
+    background: url("/imagenes/sprite.png") 300px 0px;
+    
+    
+}
+
+.foto-nosotros2:hover{
+    width: 300px;
+    height: 500px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    filter: saturate(150%);
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    box-shadow: 0px 0px 15px 15px #94ce83;
+    -webkit-box-shadow: 0px 0px 15px 15px #94ce83;
+    transform: rotate(-1080deg);
+    -webkit-transform: rotate(-1080deg);
+    transition: width 2s, height 2s, transform 1s;
+    transform: perspective(6);
+    background: url("/imagenes/sprite.png") 0px 0px;
+}
+  </style>
 <p>hola</p>
 <div class='div-general-sobrenosotros'>
     <h2>Sobre Nosotros</h2>
     <div id="drag" class='div-sobrenosotros'>
         <div id='aboutus2'  class='div-foto-aboutus'>
-            <div   type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id='fotonieve' class="foto-nosotros2">
+            <div   type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id='fotonieve' class="foto-nosotros2 
+            ">
 
             </div>  
             <audio id='nieve'>
@@ -115,8 +171,9 @@
     
     var shrek = document.getElementById('shrek');
     var nieve = document.getElementById('nieve');
-  var text=document.getElementById('p-cargo');
-  var text2=document.getElementById('p-cargo2');
+
+    var cargo1 = document.getElementById('p-cargo1');
+    var cargo2 = document.getElementById('p-cargo2');
 
     var foto1 = document.getElementById('fotoshrek');
     var foto2 = document.getElementById('fotonieve');
@@ -126,22 +183,18 @@
 
     function iniciarfoto1(){
         foto1.addEventListener('mouseover', iniciar1, false);
+        document.querySelector('#p-cargo').innerHTML = "Conductor Professional"
     }
    
     function pararfoto1(){
         foto1.addEventListener('mouseout', parar1, false);
-
+        document.querySelector('#p-cargo').innerHTML = "Scrum Master"
     }
     function parar1(){
         shrek.pause();
-        document.querySelector('#p-cargo').innerHTML = "Scrum Master"
-
-      }¡
+    }
     function iniciar1(){
         shrek.play();
-        document.querySelector('#p-cargo').innerHTML = "Conductor Professional"
-
-
     }
     
     window.addEventListener('load', iniciarfoto2, false);
@@ -157,11 +210,9 @@
     }
     function parar2(){
         nieve.pause();
-        document.querySelector('#p-cargo2').innerHTML = "Mongolo Professional"
     }
     function iniciar2(){
         nieve.play();
-        document.querySelector('#p-cargo2').innerHTML = "Yeperut"
     }
 
 

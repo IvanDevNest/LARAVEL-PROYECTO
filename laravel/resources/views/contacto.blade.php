@@ -11,11 +11,14 @@
      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
      crossorigin=""></script>
 	 
-
-	<script src="recursos/js/leaflet.js"></script>
-	<script src="recursos/js/L.Control.Locate.min.js"></script>
-	<script src="https://unpkg.com/togeojson@0.14.2"></script>
-	<script>src="https://raw.githubusercontent.com/dmauro/Keypress/2.1.5/keypress-2.1.5.min.js"</script>
+	<!-- leaflet css -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"/>
+    <!-- leaflet js -->
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+	<!-- <script src="recursos/js/leaflet.js"></script> -->
+	<!-- <script src="recursos/js/L.Control.Locate.min.js"></script> -->
+	<!-- <script src="https://unpkg.com/togeojson@0.14.2"></script> -->
+	<!-- <script>src="https://raw.githubusercontent.com/dmauro/Keypress/2.1.5/keypress-2.1.5.min.js"</script> -->
 
 </head>
 <style>
@@ -198,6 +201,29 @@ function showPosition(position) {
 	var circle = L.circle([position.coords.latitude, position.coords.longitude],{color:'blue', fillColor: '#0000FF', fillOpacity: 0.5, radius: 30}).addTo(map);
 }
 
+// 4.2 ATAJOS
+document.onkeyup = function(e) {
+  if (e.ctrlKey && e.altKey && e.which == 71) {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 6000,
+      maximumAge: 0
+    };
+    navigator.geolocation.getCurrentPosition( success, error, options );
+    function success(position) {
+      var coordenadas = position.coords;
+      alert("Tu posición actual es:"+
+      "\n- Latitud : " + coordenadas.latitude+
+      "\n- Longitud: " + coordenadas.longitude+
+      "\n- Rango de error de " + coordenadas.accuracy + " metros");
+    };
+    function error(error) {
+      console.warn('ERROR(' + error.code + '): ' + error.message);
+    };
+  } else if (e.ctrlKey && e.altKey && e.which == 67) {
+    alert("Ctrl + Alt + C shortcut combination was pressed");
+  }
+};
 
 </script>
 

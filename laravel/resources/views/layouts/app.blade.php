@@ -40,6 +40,15 @@
             <div class="container ">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                 <img src="imagenes/jordi.png" alt="imagen-logo"  width="100" height="90">
+                <!-- logo de WCAG -->
+                <a href="https://www.w3.org/WAI/WCAG2A-Conformance"
+   title="Explanation of WCAG 2 Level A Conformance">
+  <img height="32" width="88"
+       src="https://www.w3.org/WAI/WCAG21/wcag2.1A-v"
+       alt="Level A conformance,
+            W3C WAI Web Content Accessibility Guidelines 2.1">
+</a>
+
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

@@ -1,8 +1,7 @@
-// import './bootstrap';
-// import './files/create';
-// import './posts/create';
-
-// import './places/create';
+import './bootstrap';
+import './files/create';
+//import './places/create';
+import './posts/create-post';
 
 import Alpine from 'alpinejs';
 

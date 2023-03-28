@@ -36,6 +36,10 @@ Route::get('/sobrenosotros', function () {
    return view('sobrenosotros');
 })->middleware(['auth', 'verified'])->name('sobrenosotros');
 
+Route::get('/contacto', function () {
+   return view('contacto');
+})->middleware(['auth', 'verified'])->name('contacto');
+
 Route::get('mail/test', [MailController::class, 'test']);
 
 

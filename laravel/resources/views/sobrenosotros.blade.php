@@ -3,6 +3,9 @@
 <style>
   
   /* div con la primera foto */
+.retroceder{
+  align-content:center;
+}  
   .foto-nosotros{
 /* propiedades esteticas del div */
     width: 300px;
@@ -67,6 +70,7 @@
     /* Usamos el collage de fotos con el sprite para cambiar de foto */
     background: url("/imagenes/sprite.png") 0px 0px;
 }
+
   </style>
 
 <div class='div-general-sobrenosotros'>
@@ -84,7 +88,8 @@
             <p id='p-cargo'>Scrum Master</p>
             <br>
             <p>Arnau Olea</p>
-        </div>
+            
+                    </div>
         <div id='aboutus1'  class='div-foto-aboutus'>
             <div  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" id='fotoshrek' class="foto-nosotros"></div>
             <audio id='shrek'>
@@ -136,6 +141,7 @@
     </div>
   </div>
 </div>
+
  
         <!-- Modal -->
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -176,6 +182,7 @@
       </div>
     </div>
   </div>
+  <a href=""></a>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js'></script>
 <script>
